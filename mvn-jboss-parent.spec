@@ -4,7 +4,7 @@
 #
 Name     : mvn-jboss-parent
 Version  : 21
-Release  : 2
+Release  : 3
 URL      : https://github.com/jboss/jboss-parent-pom/archive/jboss-parent-21.tar.gz
 Source0  : https://github.com/jboss/jboss-parent-pom/archive/jboss-parent-21.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/jboss/jboss-parent/21/jboss-parent-21.pom
