@@ -4,10 +4,12 @@
 #
 Name     : mvn-jboss-parent
 Version  : 21
-Release  : 3
+Release  : 4
 URL      : https://github.com/jboss/jboss-parent-pom/archive/jboss-parent-21.tar.gz
 Source0  : https://github.com/jboss/jboss-parent-pom/archive/jboss-parent-21.tar.gz
-Source1  : https://repo1.maven.org/maven2/org/jboss/jboss-parent/21/jboss-parent-21.pom
+Source1  : https://repo1.maven.org/maven2/org/jboss/jboss-parent/16/jboss-parent-16.pom
+Source2  : https://repo1.maven.org/maven2/org/jboss/jboss-parent/21/jboss-parent-21.pom
+Source3  : https://repo1.maven.org/maven2/org/jboss/jboss-parent/6/jboss-parent-6.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Public-Domain
@@ -27,12 +29,19 @@ data components for the mvn-jboss-parent package.
 
 
 %prep
+%setup -q -n jboss-parent-pom-jboss-parent-21
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/16
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/16/jboss-parent-16.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/21
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/21/jboss-parent-21.pom
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/21/jboss-parent-21.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/6
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/6/jboss-parent-6.pom
 
 
 %files
@@ -40,4 +49,6 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/jboss/jboss-parent/
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/jboss/jboss-parent/16/jboss-parent-16.pom
 /usr/share/java/.m2/repository/org/jboss/jboss-parent/21/jboss-parent-21.pom
+/usr/share/java/.m2/repository/org/jboss/jboss-parent/6/jboss-parent-6.pom
